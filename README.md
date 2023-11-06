@@ -32,5 +32,22 @@ Docker demo project
 6. docker logs mongodb: {"t":{"$date":"2023-11-06T00:55:18.339+00:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
 7. stated mongo-express with some options. mongo-express.txt
 8. logged in localhost:8081 and created db user-account
-9. pulled [the ](https://gitlab.com/twn-devops-bootcamp/latest/07-docker/js-app)https://gitlab.com/twn-devops-bootcamp/latest/07-docker/js-app
+9. pulled https://gitlab.com/twn-devops-bootcamp/latest/07-docker/js-app
 10. performed steps to end on localhost:3000, edited data and saw on DB the new entries
+
+
+--------------------------------------------------
+
+Running multiple serivces with docker compose
+1. created mongo-compose.yml
+2. start container with docker-compose -f mongo-compose.yml up -d
+3. stop container with docker-compose -f mongo-compose.yml down
+
+--------------------------------------------------
+
+Dockerfile - Build own docker image
+1. created dockerfile.
+2. docker build -t my-app:1.0 . (location of dockerfile)
+3. docker build -t my-app:1.0 ~/bootcamp/module-07/ (used this based on my setup)
+4. result: Successfully tagged my-app:1.0
+5. updated dockerfile with workdir and RUN npm install
