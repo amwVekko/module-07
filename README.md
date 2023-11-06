@@ -94,3 +94,9 @@ Create docker hosted repo on nexus
 
 Deploy Nexus as Docker Container
 1. deployed a new VM locally on my proxmoxhost using terraform
+2. configured new host with ansible. please see nexus.yml
+3. tasks include to install docker, mount nfs volumes and start and deploy nexus. Please see nexus-task.yml
+4. ran playbook, cat adminpassword and ran wizard after first start
+
+
+--------------------------------------------------
