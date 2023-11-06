@@ -1,0 +1,18 @@
+---
+- hosts: docker-int
+  become: true
+  vars:
+    filepath: ../../tasks/
+
+  pre_tasks:
+    - name: update repos
+      apt:
+        update_cache: yes
+      changed_when: false
+
+  tasks:
+    - include_tasks: "{{ filepath }}users.yml"
+    - include_tasks: "{{ filepath }}os.yml"
+    - include_tasks: "{{ filepath }}applications.yml"
+    - include_tasks: "{{ filepath }}mounts.yml"
+    - include_tasks: "{{ filepath }}nexus.yml"
