@@ -52,3 +52,45 @@ Dockerfile - Build own docker image
 4. updated dockerfile with workdir and RUN npm install
 5. build image docker build -t js-app:1.0 .
 6. docker run js-app:1.0 Result: app listening on port 3000
+
+--------------------------------------------------
+
+Private Docker Repo
+1. pushed and pulled from aws repo. pulled with updated mongo-compose.yml
+
+--------------------------------------------------
+
+Docker Volumes
+1. watched video, skipped working on it as i'm using docker in my private homelab.
+2. example of jellyfin container volumes in ansible playbook:
+  - name: Deploy jellyfin
+    community.docker.docker_container:
+      name: jellyfin
+      image: jellyfin/jellyfin
+      state: started
+      restart_policy: unless-stopped
+      volumes:
+        - /mnt/server/docker/jellyfin/cache:/cache
+        - /mnt/server/docker/jellyfin/config:/config
+        - /mnt/server/media:/media
+      network_mode: host
+3. Updated mongo-compose.yml with local volumes
+
+
+--------------------------------------------------
+
+Create docker hosted repo on nexus
+1. created repo named docker-hosted
+2. created role with priviliges view-docker-hosted*
+3. added port http 8083 for repo, also opened in FW
+4. added docker bearer token realm
+5. edited docker.json to allow http repos
+6. logged in with docker login
+7. build app again and retagged it with nexus IP:port
+8. pushed with docker push IP:port/js-app:1.0
+
+
+--------------------------------------------------
+
+Deploy Nexus as Docker Container
+1. deployed a new VM locally on my proxmoxhost using terraform
