@@ -1,5 +1,5 @@
 ---
-- hosts: docker-int
+- hosts: docker-nexus
   become: true
   vars:
     filepath: ../../tasks/
