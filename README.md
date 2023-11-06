@@ -48,6 +48,7 @@ Running multiple serivces with docker compose
 Dockerfile - Build own docker image
 1. created dockerfile.
 2. docker build -t my-app:1.0 . (location of dockerfile)
-3. docker build -t my-app:1.0 ~/bootcamp/module-07/ (used this based on my setup)
-4. result: Successfully tagged my-app:1.0
-5. updated dockerfile with workdir and RUN npm install
+3. result: Successfully tagged my-app:1.0
+4. updated dockerfile with workdir and RUN npm install
+5. build image docker build -t js-app:1.0 .
+6. docker run js-app:1.0 Result: app listening on port 3000
