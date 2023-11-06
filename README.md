@@ -28,26 +28,9 @@ Docker demo project
 2. docker network ls (lists docker networks)
 3. created a docker network with docker network create mongo-network
 4. pulled mongo and mongo-express
-5. started mongo with some options:
-docker run -d \
--p 27017:27017 \
---name mongodb \
---network mongo-network \
--e MONGO_INITDB_ROOT_USERNAME=admin \
--e MONGO_INITDB_ROOT_PASSWORD="password" \
-mongo
+5. started mongo with some options. see mongodb.txt
 6. docker logs mongodb: {"t":{"$date":"2023-11-06T00:55:18.339+00:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
-7. stated mongo-express with some options:
-docker run -d \
--p 8081:8081 \
---name mongo-express \
---network mongo-network \
--e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
--e ME_CONFIG_MONGODB_ADMINPASSWORD="password" \
--e ME_CONFIG_MONGODB_SERVER=mongodb \
--e ME_CONFIG_BASICAUTH_USERNAME=admin \          
--e ME_CONFIG_BASICAUTH_PASSWORD="password" \
-mongo-express
+7. stated mongo-express with some options. mongo-express.txt
 8. logged in localhost:8081 and created db user-account
 9. pulled [the ](https://gitlab.com/twn-devops-bootcamp/latest/07-docker/js-app)https://gitlab.com/twn-devops-bootcamp/latest/07-docker/js-app
 10. performed steps to end on localhost:3000, edited data and saw on DB the new entries
