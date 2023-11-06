@@ -1,5 +1,6 @@
 version: '3'
 services:
+  js-app: 476889516575.dkr.ecr.eu-central-1.amazonaws.com/js-app:1.0 
   # MongoDB service
   mongodb:
     image: mongo:latest
@@ -9,6 +10,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: password
+    volumes :
+      - mongo-data:/data/db
 
   # Mongo Express service
   mongo-express:
@@ -26,3 +29,6 @@ services:
       ME_CONFIG_OPTIONS_EDITORTHEME: "default"
     depends_on:
       - mongodb
+volumes:
+  mongo-data:
+    driver: local
