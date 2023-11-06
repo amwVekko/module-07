@@ -1,0 +1,13 @@
+---
+- name: Deploy nexus     
+  community.docker.docker_container:
+    name: nexus
+    image: sonatype/nexus3
+    state: started
+    restart_policy: unless-stopped
+    volumes:
+    - /mnt/server/docker/nexus/config/:/nexus-data
+    ports:
+    - "8081:8081"
+    - "8083:8083"
+    
